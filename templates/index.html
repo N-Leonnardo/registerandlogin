@@ -6,7 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Teste</title>
 </head>
+<style>
+    *{
+        font-family: sans-serif;
+    }
+    body{
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+    }
+    .register{
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+        margin: 0px 40px 40px 40px;
+    }
+    .items{
+        display: flex;
+        align-items: center;
+    }
+</style>
 <body>
+    <div class="alert"></div>
 {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
     {% if messages %}                            <!-- check if there are any messages -->
         {% for message in messages %}            <!-- loop through the messages -->
@@ -15,11 +39,40 @@
     {% endif %}
 {% endwith %}
     <h1>Hello</h1>
-    <h1>Add a Friend</h1>
-    <form action="/create_email" method="POST">
-        <label for="email" >Email:</label>
-        <input type="text" name="email">
-        <input type="submit" value="Add email">
-    </form> 
+
+    <div class="items">
+        <div>
+            <form class="register" action="/register/user" method="POST">
+                <h1>Add a Friend</h1>
+                <label for="first_name" >first_name:</label>
+                <input type="text" name="first_name">
+        
+                <label for="last_name" >last_name:</label>
+                <input type="text" name="last_name">
+        
+                <label for="email" >Email:</label>
+                <input type="text" name="email">
+        
+                <label for="pw" >Password:</label>
+                <input type="password" name="pw">
+        
+                <input type="submit" value="Add email">
+            </form> 
+        </div>
+        <div>
+            <form class="register" action="/login" method="POST">
+                <h1>Login</h1>
+        
+                <label for="email" >Email:</label>
+                <input type="text" name="email">
+        
+                <label for="pw" >Password:</label>
+                <input type="password" name="pw">
+        
+                <input type="submit" value="Add email">
+            </form> 
+        </div>
+        </div>
+    </div>
 </body>
 </html>
